@@ -1,17 +1,22 @@
 <?php
+
 	$able_tranx_id = rand();
-	preg_match("/^.*\.(webm|webmv|mp4|ogg|ogv)$/i", $able_src, $able_src_mime);
-	/*
-	AUDIO FOR FUTURE RELEASE
-	audio/flac
-	audio/x-flac
-	audio/wave
-	audio/wav
-	audio/x-wav
-	audio/x-pn-wav
-	audio/mpeg
-	audio/ogg
-	*/
+	$able_video_id = rand();
+
+	function media_type($src){
+
+		preg_match("/^.*\.(webm|webmv|mp4|ogg|ogv|mp3|oga|wav)$/i", $src, $able_match);
+		$able_src_mime = $able_match[1];
+
+		$able_video_types = ["webm","webmv","mp4","ogg","ogv"];
+		$able_audio_types = ["mp3","oga","wav"];
+
+		if( in_array($able_src_mime, $able_video_types) ){ $able_type = "video"; }
+		if( in_array($able_src_mime, $able_audio_types) ){ $able_type = "audio"; }
+
+		echo $able_type . '/' . $able_src_mime;
+	}
+
 ?>
 
 
@@ -19,9 +24,9 @@
 
 	<div class="video-container">
 
-		<video data-able-player data-speed-icons="animals" data-meta-type="selector" data-chapters-div="buttons" data-transcript-div="<?php echo $able_tranx_id; ?>">
+		<video id="<?php echo $able_video_id; ?>" data-able-player data-speed-icons="animals" data-meta-type="selector" data-chapters-div="buttons" data-transcript-div="<?php echo $able_tranx_id; ?>">
 
-			<source src="<?php echo $able_src; ?>" type="video/<?php echo $able_src_mime[1]; ?>">
+			<source src="<?php echo $able_src; ?>" type="<?php media_type($able_src); ?>">
 
 			<!-- <track src="" kind="captions"> -->
 
@@ -36,6 +41,3 @@
 	</div>
 
 </div>
-
-<!-- https://www.quirksmode.org/html5/videos/big_buck_bunny.webm -->
-<!-- https://www.quirksmode.org/html5/videos/big_buck_bunny.ogv -->
