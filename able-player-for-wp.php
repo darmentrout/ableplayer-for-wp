@@ -16,7 +16,7 @@ function able_mime_types($mime_types){
 add_filter('mime_types', 'able_mime_types', 1, 1);
 
 
-// COMMENTS
+// SET UP THE SHORTCODE THAT GENERATES THE VIDEO ELEMENTS
 function able_short($atts){
 
     wp_enqueue_style( 'css-c', plugin_dir_url(__FILE__) . 'ableplayer/build/ableplayer.min.css', false );
@@ -26,11 +26,25 @@ function able_short($atts){
     wp_enqueue_script( 'js-c', plugin_dir_url(__FILE__) . 'ableplayer/thirdparty/js.cookie.js', false );
     wp_enqueue_script( 'js-d', plugin_dir_url(__FILE__) . 'ableplayer/build/ableplayer.js', false );
 
-    ob_start();   
-        $able_src = $atts['src'];
-        wp_head();
-        wp_footer();
-        require_once( plugin_dir_path(__FILE__) . 'markup.php' );
-    return ob_get_clean();
+    $able_src = $atts['src'];
+    include( plugin_dir_path(__FILE__) . 'markup.php' );
+
 }
-add_shortcode('able_video', 'able_short');
+add_shortcode('able_player', 'able_short');
+
+
+// DETERMINE THE MEDIA TYPE BASED ON FILE EXTENSION
+function media_type($src){
+
+    preg_match("/^.*\.(webm|webmv|mp4|ogg|ogv|mp3|oga|wav)$/i", $src, $able_match);
+    $able_src_mime = $able_match[1];
+
+    $able_video_types = ["webm","webmv","mp4","ogg","ogv"];
+    $able_audio_types = ["mp3","oga","wav"];
+
+    if( in_array($able_src_mime, $able_video_types) ){ $able_type = "video"; }
+    if( in_array($able_src_mime, $able_audio_types) ){ $able_type = "audio"; }
+
+    echo $able_type . '/' . $able_src_mime;
+
+}
