@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Able Player Video Demo #5a1</title>
+<link rel="stylesheet" href="demos.css" type="text/css">
+
+<!-- Dependencies -->
+<script src="../thirdparty/modernizr.custom.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="../thirdparty/js.cookie.js"></script>
+
+<!-- Able Player CSS -->
+<link rel="stylesheet" href="../build/ableplayer.min.css" type="text/css"/>
+
+<!-- Able Player JavaScript -->
+<script src="../build/ableplayer.js"></script>
+
+<style>
+  body {
+    background-color: #222;
+    color: #eee;
+  }
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #ddd;
+  }
+  .able-wrapper {
+    /*max-width: 100% !important;*/
+    margin: 0 auto;
+  }
+  .able-transcript-area {
+
+  }
+</style>
+
+</head>
+
+<body>
+
+<h1>Able Player Video Demo #5a1:<br/>Video player with interactive transcript, subtitles, and chapters</h1>
+
+<p>For additional demos see the <a href="index.html">Index of <em>Able Player</em> Examples</a>.</p>
+
+<video id="video1" preload="auto" width="641" height="369" data-able-player data-speed-icons="animals">
+  <source type="video/mp4" src="../media/writing-zone.mp4" data-desc-src="../media/wwa_described.mp4">
+  <!-- Able Player will display tracks alphabetically by label -->
+  <track kind="captions" src="../media/writing-zone.vtt" srclang="en" label="English">
+</video>
+
+
+</body>
+</html>
