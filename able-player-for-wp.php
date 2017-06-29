@@ -5,6 +5,7 @@
 * Version: 1.0
 * Author: Damion Armentrout
 * License: GPLv2 or later
+* Plugin URI: https://github.com/darmentrout/ableplayer-for-wp
 */
 
 
