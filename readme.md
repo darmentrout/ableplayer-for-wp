@@ -18,11 +18,18 @@
 ```
 
 The following file types are currently supported by Able Player:
+
 &nbsp;&nbsp;&nbsp;&nbsp;*Video*: webm, webmv, mp4, ogg*, ogv
+
 &nbsp;&nbsp;&nbsp;&nbsp;*Audio*: mp3, ogg*, oga, wav
+
 \* requires the inclusion of an additional parameter/attribute in the shortcode: `ogg_type = [audio|video]`.
 
 ____
 
+v 1.0
 
-Able Player is Copyright &copy; 2014 University of Washington (MIT License). The author of this plugin is not associated with Able Player or UW.
+Damion Armentrout, &copy; 2017 (GPLv2 License or later).
+
+
+Able Player is &copy; 2014 University of Washington (MIT License). The author of this plugin is not associated with Able Player or UW.
