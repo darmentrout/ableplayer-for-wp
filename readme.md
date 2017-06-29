@@ -1,16 +1,20 @@
 ## Able Player for WordPress
 
-[Able Player](https://github.com/ableplayer/ableplayer) is a fully accessible cross-browser HTML5 media player. This plugin gives you the ability to include media in any post or page with an easy to use shortcode. Your media will be wrapped in the Able Player interface thus making them more accessible to users of screen readers and keyboards (or other non-mouse input devices).
+[Able Player](https://github.com/ableplayer/ableplayer) is a fully accessible cross-browser HTML5 media player. With an easy to use shortcode, this plugin gives you the ability to include audio or video wrapped in an accessible player in any post or page. This will enhance the user experience of visitors who rely on screen readers and keyboards (or other non-mouse input devices).
 
 **Example Video:**
 ```
-[able_player src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"]
+// video only
+[able_player src="https://example.afk/sample.mp4"]
+
+// video with captions and chapters
+[able_player src="https://example.afk/sample.mp4" captions="https://example.afk/caps.vtt" chapters="https://example.afk/chaps.vtt"]
 ```
 
 **Example Audio:**
 ```
-[able_player src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Test_mp3_opus_16kbps.wav"]
-[able_player src="https://upload.wikimedia.org/wikipedia/commons/6/6a/The_Waste_Land.ogg" ogg_type="audio"]
+[able_player src="https://example.afk/sample.wav"]
+[able_player src="https://example.afk/sample.ogg" ogg_type="audio"]
 ```
 
 The following file types are currently supported by Able Player:

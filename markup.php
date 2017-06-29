@@ -10,20 +10,20 @@
 
 	<div class="media-container">
 
-		<<?php media_type($able_src, true, $ogg_type); ?> id="<?php echo $able_video_id; ?>" data-able-player data-speed-icons="animals" data-meta-type="selector" data-chapters-div="buttons" data-transcript-div="<?php echo $able_tranx_id; ?>">
+		<<?php /* VIDEO OR AUDIO (BASED ON FILE EXT) */ media_type($able_src, true, $ogg_type); ?> id="<?php echo $able_video_id; ?>" data-able-player data-speed-icons="animals" data-meta-type="selector">
 
 			<source src="<?php echo $able_src; ?>" type="<?php media_type($able_src, false, $ogg_type); ?>">
 
-			<!-- <track src="" kind="captions"> -->
+			<?php if( $able_cap ): ?>
+				<track src="<?php echo $able_cap; ?>" kind="captions">
+			<?php endif; ?>
 
-			<!-- <track src="" kind="chapters"> -->
+			<?php if( $able_ch ): ?>
+				<track src="<?php echo $able_ch; ?>" kind="chapters">
+			<?php endif; ?>
 
-		</<?php media_type($able_src, true, $ogg_type); ?>>
+		</<?php /* VIDEO OR AUDIO (BASED ON FILE EXT) */ media_type($able_src, true, $ogg_type); ?>>
 
-	</div>
-
-	<div class="tranx-container" id="<?php echo $able_tranx_id; ?>">
-		<!-- live transcript goes here -->
 	</div>
 
 </div>

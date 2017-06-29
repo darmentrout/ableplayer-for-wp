@@ -9,6 +9,7 @@
 
 
 // ALLOWS WP TO HANDLE VTT FILES IN MEDIA LIBRARY
+// (FOR IF A USER UPLOADS SUCH A FILE TO THEIR WP SITE)
 function able_mime_types($mime_types){
     $mime_types['vtt'] = 'text/vtt';
     return $mime_types;
@@ -55,20 +56,36 @@ function media_type($src, $elem = false, $ogg = false){
 // SET UP THE SHORTCODE THAT GENERATES THE VIDEO ELEMENTS
 function able_short($atts){
 
+    // ENQUEUE THE SCRIPTS THAT ABLE PLAYER NEEDS
     wp_enqueue_style( 'css-c', plugin_dir_url(__FILE__) . 'ableplayer/build/ableplayer.min.css', false );
-
     wp_enqueue_script( 'js-b', '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js', false );
     wp_enqueue_script( 'js-a', plugin_dir_url(__FILE__) . 'ableplayer/thirdparty/modernizr.custom.js', false );
     wp_enqueue_script( 'js-c', plugin_dir_url(__FILE__) . 'ableplayer/thirdparty/js.cookie.js', false );
     wp_enqueue_script( 'js-d', plugin_dir_url(__FILE__) . 'ableplayer/build/ableplayer.js', false );
 
+    // GET THE URL/PATH OF THE MEDIA FILE FROM THE SHORTCODE
     $able_src = $atts['src'];
-    if( isset($atts['ogg_type']) ){
+
+    // GET THE CAPTION/SUBTITLE FILE
+    if( isset($atts['captions']) && !empty($atts['captions']) ){
+        $able_cap = $atts['captions'];
+    }
+
+    // GET THE CHAPTERS FILE
+    if( isset($atts['chapters']) && !empty($atts['chapters']) ){
+        $able_ch = $atts['chapters'];
+    }
+
+    // OGG IS A CONTAINER FORMAT AND CAN BE EITHER VIDEO OR AUDIO
+    // FIND OUT IF OGG TYPE IS SPECIFIED, ELSE DEFAULT TO VIDEO
+    if( isset($atts['ogg_type']) && !empty($atts['ogg_type']) ){
         $ogg_type = $atts['ogg_type'];
     }
     else {
         $ogg_type = "video";
     }
+
+    // INCLUDE THE MARKUP FOR THE VIDEO ELEMENT
     include( plugin_dir_path(__FILE__) . 'markup.php' );
 
 }
