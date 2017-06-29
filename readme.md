@@ -29,7 +29,7 @@ ____
 
 v 1.0
 
-Damion Armentrout, &copy; 2017 (GPLv2 License or later).
+Damion Armentrout, &copy; 2017 ([GPLv2 License](http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses) or later).
 
 
 Able Player is &copy; 2014 University of Washington (MIT License). The author of this plugin is not associated with Able Player or UW.
