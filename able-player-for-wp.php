@@ -1,6 +1,6 @@
 <?php
 /**
-* Plugin Name: Able Player for WP
+* Plugin Name: Able Player
 * Description: An implementation of Able Player for WordPress
 * Version: 1.0
 * Author: Damion Armentrout
