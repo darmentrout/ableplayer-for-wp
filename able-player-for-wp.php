@@ -19,7 +19,7 @@ add_filter('mime_types', 'able_mime_types', 1, 1);
 
 
 // DETERMINE THE MEDIA TYPE BASED ON FILE EXTENSION
-function media_type($src, $elem = false, $ogg = false){
+function able_media_type($src, $elem = false, $ogg = false){
 
     preg_match("/^.*\.(webm|webmv|mp4|ogv|ogg|mp3|oga|wav)$/i", $src, $able_match);
     $able_src_mime = $able_match[1];
@@ -59,7 +59,6 @@ function able_short($atts){
 
     // ENQUEUE THE SCRIPTS THAT ABLE PLAYER NEEDS
     wp_enqueue_style( 'css-c', plugin_dir_url(__FILE__) . 'ableplayer/build/ableplayer.min.css', false );
-    wp_enqueue_script( 'js-b', '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js', false );
     wp_enqueue_script( 'js-a', plugin_dir_url(__FILE__) . 'ableplayer/thirdparty/modernizr.custom.js', false );
     wp_enqueue_script( 'js-c', plugin_dir_url(__FILE__) . 'ableplayer/thirdparty/js.cookie.js', false );
     wp_enqueue_script( 'js-d', plugin_dir_url(__FILE__) . 'ableplayer/build/ableplayer.js', false );
