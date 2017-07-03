@@ -85,8 +85,10 @@ function able_short($atts){
         $ogg_type = "video";
     }
 
+    ob_start();
     // INCLUDE THE MARKUP FOR THE VIDEO ELEMENT
     include( plugin_dir_path(__FILE__) . 'markup.php' );
+    return ob_get_clean();
 
 }
 add_shortcode('able_player', 'able_short');
